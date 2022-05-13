@@ -1,0 +1,67 @@
+{
+  "name": "runjs",
+  "version": "4.4.2",
+  "description": "Minimalistic building tool",
+  "keywords": [
+    "build",
+    "system",
+    "make",
+    "tool"
+  ],
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "bin": {
+    "run": "bin/run.js"
+  },
+  "scripts": {
+    "lint": "tslint -c tslint.json 'src/*.ts'",
+    "build": "tsc",
+    "test": "yarn lint && yarn build && yarn sandbox:dev && jest ./test --coverage",
+    "test:unit": "jest ./test/unit/",
+    "test:e2e": "jest ./test/e2e/",
+    "test:prod": "yarn sandbox:prod && jest ./test/e2e/",
+    "sandbox:clean": "rm -rf ./test/e2e/sandbox/node_modules && mkdir -p ./test/e2e/sandbox/node_modules/.bin",
+    "sandbox:dev": "yarn sandbox:clean && ln -s ../../../../ ./test/e2e/sandbox/node_modules/runjs",
+    "sandbox:prod": "yarn sandbox:clean && (cd ./test/e2e/sandbox && yarn add runjs)",
+    "clean": "rm -rf node_modules && yarn sandbox:clean"
+  },
+  "lint-staged": {
+    "src/*.{ts,tsx}": [
+      "tslint --fix",
+      "git add"
+    ]
+  },
+  "engines": {
+    "node": ">=6.11.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pawelgalazka/runjs.git"
+  },
+  "author": "Pawel Galazka",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pawelgalazka/runjs/issues"
+  },
+  "homepage": "https://github.com/pawelgalazka/runjs#readme",
+  "dependencies": {
+    "chalk": "2.3.0",
+    "lodash.padend": "4.6.1",
+    "microcli": "1.3.3",
+    "omelette": "0.4.5"
+  },
+  "devDependencies": {
+    "@types/jest": "23.3.12",
+    "@types/lodash.padend": "4.6.4",
+    "@types/node": "10.12.18",
+    "husky": "1.3.1",
+    "jest": "23.6.0",
+    "lint-staged": "8.1.0",
+    "prettier": "1.15.3",
+    "ts-jest": "23.10.5",
+    "tslint": "5.12.1",
+    "tslint-config-prettier": "1.17.0",
+    "tslint-plugin-prettier": "2.0.1",
+    "typescript": "3.2.2"
+  }
+}

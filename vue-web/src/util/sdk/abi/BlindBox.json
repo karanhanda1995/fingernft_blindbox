@@ -1,0 +1,784 @@
+{
+  "contractName": "BlindBox",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "contract TransferProxy",
+          "name": "_transferProxy",
+          "type": "address"
+        },
+        {
+          "internalType": "contract TransferProxyForDeprecated",
+          "name": "_transferProxyForDeprecated",
+          "type": "address"
+        },
+        {
+          "internalType": "contract ERC20TransferProxy",
+          "name": "_erc20TransferProxy",
+          "type": "address"
+        },
+        {
+          "internalType": "contract MintProxy",
+          "name": "_mintProxy",
+          "type": "address"
+        },
+        {
+          "internalType": "contract BlindState",
+          "name": "_state",
+          "type": "address"
+        },
+        {
+          "internalType": "address payable",
+          "name": "_beneficiary",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_buyerFeeSigner",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_autherSigner",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "string",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "buyToken",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "buyTokenId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "salt",
+          "type": "uint256"
+        }
+      ],
+      "name": "Cancel",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "buyToken",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "buyTokenId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "buyValue",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "buyer",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "salt",
+          "type": "uint256"
+        }
+      ],
+      "name": "Open",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "index",
+          "type": "uint256"
+        }
+      ],
+      "name": "OpenIndex",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "autherSigner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [],
+      "name": "beneficiary",
+      "outputs": [
+        {
+          "internalType": "address payable",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [],
+      "name": "buyerFeeSigner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [],
+      "name": "erc20TransferProxy",
+      "outputs": [
+        {
+          "internalType": "contract ERC20TransferProxy",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [],
+      "name": "renounceOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "state",
+      "outputs": [
+        {
+          "internalType": "contract BlindState",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "transferProxy",
+      "outputs": [
+        {
+          "internalType": "contract TransferProxy",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [],
+      "name": "transferProxyForDeprecated",
+      "outputs": [
+        {
+          "internalType": "contract TransferProxyForDeprecated",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address payable",
+          "name": "newBeneficiary",
+          "type": "address"
+        }
+      ],
+      "name": "setBeneficiary",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "newBuyerFeeSigner",
+          "type": "address"
+        }
+      ],
+      "name": "setBuyerFeeSigner",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "components": [
+                {
+                  "internalType": "address",
+                  "name": "owner",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "salt",
+                  "type": "uint256"
+                },
+                {
+                  "components": [
+                    {
+                      "internalType": "address",
+                      "name": "token",
+                      "type": "address"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "tokenId",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "enum BlindDomain.AssetType",
+                      "name": "assetType",
+                      "type": "uint8"
+                    }
+                  ],
+                  "internalType": "struct BlindDomain.Asset[]",
+                  "name": "sellAssets",
+                  "type": "tuple[]"
+                },
+                {
+                  "components": [
+                    {
+                      "internalType": "address",
+                      "name": "token",
+                      "type": "address"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "tokenId",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "enum BlindDomain.AssetType",
+                      "name": "assetType",
+                      "type": "uint8"
+                    }
+                  ],
+                  "internalType": "struct BlindDomain.Asset",
+                  "name": "buyAsset",
+                  "type": "tuple"
+                }
+              ],
+              "internalType": "struct BlindDomain.BlindKey",
+              "name": "key",
+              "type": "tuple"
+            },
+            {
+              "internalType": "uint256",
+              "name": "opening",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bool",
+              "name": "repeat",
+              "type": "bool"
+            },
+            {
+              "internalType": "uint256",
+              "name": "startTime",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "endTime",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "buying",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256[]",
+              "name": "assetAmounts",
+              "type": "uint256[]"
+            },
+            {
+              "internalType": "uint256",
+              "name": "sellerFee",
+              "type": "uint256"
+            },
+            {
+              "internalType": "string[]",
+              "name": "uris",
+              "type": "string[]"
+            }
+          ],
+          "internalType": "struct BlindDomain.BlindBox",
+          "name": "blindbox",
+          "type": "tuple"
+        },
+        {
+          "components": [
+            {
+              "internalType": "uint8",
+              "name": "v",
+              "type": "uint8"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "r",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "s",
+              "type": "bytes32"
+            }
+          ],
+          "internalType": "struct BlindDomain.Sig",
+          "name": "sig",
+          "type": "tuple"
+        },
+        {
+          "internalType": "uint256",
+          "name": "buyerFee",
+          "type": "uint256"
+        },
+        {
+          "components": [
+            {
+              "internalType": "uint8",
+              "name": "v",
+              "type": "uint8"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "r",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "s",
+              "type": "bytes32"
+            }
+          ],
+          "internalType": "struct BlindDomain.Sig",
+          "name": "buyerFeeSig",
+          "type": "tuple"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "buyer",
+          "type": "address"
+        }
+      ],
+      "name": "open",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function",
+      "payable": true
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "from",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "to",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "salty",
+          "type": "uint256"
+        }
+      ],
+      "name": "random",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "components": [
+                {
+                  "internalType": "address",
+                  "name": "owner",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "salt",
+                  "type": "uint256"
+                },
+                {
+                  "components": [
+                    {
+                      "internalType": "address",
+                      "name": "token",
+                      "type": "address"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "tokenId",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "enum BlindDomain.AssetType",
+                      "name": "assetType",
+                      "type": "uint8"
+                    }
+                  ],
+                  "internalType": "struct BlindDomain.Asset[]",
+                  "name": "sellAssets",
+                  "type": "tuple[]"
+                },
+                {
+                  "components": [
+                    {
+                      "internalType": "address",
+                      "name": "token",
+                      "type": "address"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "tokenId",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "enum BlindDomain.AssetType",
+                      "name": "assetType",
+                      "type": "uint8"
+                    }
+                  ],
+                  "internalType": "struct BlindDomain.Asset",
+                  "name": "buyAsset",
+                  "type": "tuple"
+                }
+              ],
+              "internalType": "struct BlindDomain.BlindKey",
+              "name": "key",
+              "type": "tuple"
+            },
+            {
+              "internalType": "uint256",
+              "name": "opening",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bool",
+              "name": "repeat",
+              "type": "bool"
+            },
+            {
+              "internalType": "uint256",
+              "name": "startTime",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "endTime",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "buying",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256[]",
+              "name": "assetAmounts",
+              "type": "uint256[]"
+            },
+            {
+              "internalType": "uint256",
+              "name": "sellerFee",
+              "type": "uint256"
+            },
+            {
+              "internalType": "string[]",
+              "name": "uris",
+              "type": "string[]"
+            }
+          ],
+          "internalType": "struct BlindDomain.BlindBox",
+          "name": "blindbox",
+          "type": "tuple"
+        },
+        {
+          "internalType": "uint256",
+          "name": "fee",
+          "type": "uint256"
+        }
+      ],
+      "name": "prepareBuyerFeeMessage",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "components": [
+                {
+                  "internalType": "address",
+                  "name": "owner",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "salt",
+                  "type": "uint256"
+                },
+                {
+                  "components": [
+                    {
+                      "internalType": "address",
+                      "name": "token",
+                      "type": "address"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "tokenId",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "enum BlindDomain.AssetType",
+                      "name": "assetType",
+                      "type": "uint8"
+                    }
+                  ],
+                  "internalType": "struct BlindDomain.Asset[]",
+                  "name": "sellAssets",
+                  "type": "tuple[]"
+                },
+                {
+                  "components": [
+                    {
+                      "internalType": "address",
+                      "name": "token",
+                      "type": "address"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "tokenId",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "enum BlindDomain.AssetType",
+                      "name": "assetType",
+                      "type": "uint8"
+                    }
+                  ],
+                  "internalType": "struct BlindDomain.Asset",
+                  "name": "buyAsset",
+                  "type": "tuple"
+                }
+              ],
+              "internalType": "struct BlindDomain.BlindKey",
+              "name": "key",
+              "type": "tuple"
+            },
+            {
+              "internalType": "uint256",
+              "name": "opening",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bool",
+              "name": "repeat",
+              "type": "bool"
+            },
+            {
+              "internalType": "uint256",
+              "name": "startTime",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "endTime",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "buying",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256[]",
+              "name": "assetAmounts",
+              "type": "uint256[]"
+            },
+            {
+              "internalType": "uint256",
+              "name": "sellerFee",
+              "type": "uint256"
+            },
+            {
+              "internalType": "string[]",
+              "name": "uris",
+              "type": "string[]"
+            }
+          ],
+          "internalType": "struct BlindDomain.BlindBox",
+          "name": "blindbox",
+          "type": "tuple"
+        }
+      ],
+      "name": "prepareMessage",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function",
+      "constant": true
+    }
+  ]
+}

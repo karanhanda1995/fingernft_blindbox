@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fingerchar.db.dao.ext.BlindBlindBoxOrderExtMapper">
+    <select id="getIdAll" resultMap="blindBlindBoxOrderMap" >
+        SELECT blind_box_id,sell_assets,buyer_token,buyer_type,buying,sellings,salt,signature,opening,openeds
+        FROM blind_blind_box_order
+        <if test="ew.emptyOfWhere == false">
+            ${ew.customSqlSegment}
+        </if>
+    </select>
+    <resultMap id="blindBlindBoxOrderMap" type="com.fingerchar.db.domain.BlindBlindBoxOrder">
+        <result column="blind_box_id" property="blindBoxId" javaType="Long"/>
+        <result column="sell_assets" property="sellAssets" javaType="String"/>
+        <result column="buyer_token" property="buyerToken" javaType="String"/>
+        <result column="buyer_type" property="buyerType" javaType="Integer"/>
+        <result column="buying" property="buying" javaType="String"/>
+        <result column="sellings" property="sellings" javaType="String"/>
+        <result column="salt" property="salt" javaType="String"/>
+        <result column="signature" property="signature" javaType="String"/>
+        <result column="opening" property="opening" javaType="Long"/>
+        <result column="openeds" property="openeds" javaType="Long"/>
+    </resultMap>
+
+</mapper>

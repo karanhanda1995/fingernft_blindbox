@@ -1,0 +1,369 @@
+{
+  "contractName": "AuctionState",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "OperatorAdded",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "OperatorRemoved",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "addOperator",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "name": "completed",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "isOperator",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "removeOperator",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "renounceOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "owner",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "salt",
+              "type": "uint256"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "address",
+                  "name": "token",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "tokenId",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "enum ExchangeDomain.AssetType",
+                  "name": "assetType",
+                  "type": "uint8"
+                }
+              ],
+              "internalType": "struct ExchangeDomain.Asset",
+              "name": "sellAsset",
+              "type": "tuple"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "address",
+                  "name": "token",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "tokenId",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "enum ExchangeDomain.AssetType",
+                  "name": "assetType",
+                  "type": "uint8"
+                }
+              ],
+              "internalType": "struct ExchangeDomain.Asset",
+              "name": "buyAsset",
+              "type": "tuple"
+            }
+          ],
+          "internalType": "struct ExchangeDomain.OrderKey",
+          "name": "key",
+          "type": "tuple"
+        }
+      ],
+      "name": "getCompleted",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "owner",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "salt",
+              "type": "uint256"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "address",
+                  "name": "token",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "tokenId",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "enum ExchangeDomain.AssetType",
+                  "name": "assetType",
+                  "type": "uint8"
+                }
+              ],
+              "internalType": "struct ExchangeDomain.Asset",
+              "name": "sellAsset",
+              "type": "tuple"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "address",
+                  "name": "token",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "tokenId",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "enum ExchangeDomain.AssetType",
+                  "name": "assetType",
+                  "type": "uint8"
+                }
+              ],
+              "internalType": "struct ExchangeDomain.Asset",
+              "name": "buyAsset",
+              "type": "tuple"
+            }
+          ],
+          "internalType": "struct ExchangeDomain.OrderKey",
+          "name": "key",
+          "type": "tuple"
+        }
+      ],
+      "name": "setCompleted",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "owner",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "salt",
+              "type": "uint256"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "address",
+                  "name": "token",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "tokenId",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "enum ExchangeDomain.AssetType",
+                  "name": "assetType",
+                  "type": "uint8"
+                }
+              ],
+              "internalType": "struct ExchangeDomain.Asset",
+              "name": "sellAsset",
+              "type": "tuple"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "address",
+                  "name": "token",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "tokenId",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "enum ExchangeDomain.AssetType",
+                  "name": "assetType",
+                  "type": "uint8"
+                }
+              ],
+              "internalType": "struct ExchangeDomain.Asset",
+              "name": "buyAsset",
+              "type": "tuple"
+            }
+          ],
+          "internalType": "struct ExchangeDomain.OrderKey",
+          "name": "key",
+          "type": "tuple"
+        }
+      ],
+      "name": "getCompletedKey",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.0+commit.c7dfd78e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"OperatorAdded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"OperatorRemoved\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"addOperator\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"name\":\"completed\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"salt\",\"type\":\"uint256\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"internalType\":\"enum ExchangeDomain.AssetType\",\"name\":\"assetType\",\"type\":\"uint8\"}],\"internalType\":\"struct ExchangeDomain.Asset\",\"name\":\"sellAsset\",\"type\":\"tuple\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"internalType\":\"enum ExchangeDomain.AssetType\",\"name\":\"assetType\",\"type\":\"uint8\"}],\"internalType\":\"struct ExchangeDomain.Asset\",\"name\":\"buyAsset\",\"type\":\"tuple\"}],\"internalType\":\"struct ExchangeDomain.OrderKey\",\"name\":\"key\",\"type\":\"tuple\"}],\"name\":\"getCompleted\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"salt\",\"type\":\"uint256\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"internalType\":\"enum ExchangeDomain.AssetType\",\"name\":\"assetType\",\"type\":\"uint8\"}],\"internalType\":\"struct ExchangeDomain.Asset\",\"name\":\"sellAsset\",\"type\":\"tuple\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"internalType\":\"enum ExchangeDomain.AssetType\",\"name\":\"assetType\",\"type\":\"uint8\"}],\"internalType\":\"struct ExchangeDomain.Asset\",\"name\":\"buyAsset\",\"type\":\"tuple\"}],\"internalType\":\"struct ExchangeDomain.OrderKey\",\"name\":\"key\",\"type\":\"tuple\"}],\"name\":\"getCompletedKey\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"isOperator\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"removeOperator\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"salt\",\"type\":\"uint256\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"internalType\":\"enum ExchangeDomain.AssetType\",\"name\":\"assetType\",\"type\":\"uint8\"}],\"internalType\":\"struct ExchangeDomain.Asset\",\"name\":\"sellAsset\",\"type\":\"tuple\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"internalType\":\"enum ExchangeDomain.AssetType\",\"name\":\"assetType\",\"type\":\"uint8\"}],\"internalType\":\"struct ExchangeDomain.Asset\",\"name\":\"buyAsset\",\"type\":\"tuple\"}],\"internalType\":\"struct ExchangeDomain.OrderKey\",\"name\":\"key\",\"type\":\"tuple\"}],\"name\":\"setCompleted\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"owner()\":{\"details\":\"Returns the address of the current owner.\"},\"renounceOwnership()\":{\"details\":\"Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner.\"},\"transferOwnership(address)\":{\"details\":\"Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner.\"}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/auction/AuctionState.sol\":\"AuctionState\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":1000},\"remappings\":[]},\"sources\":{\"project:/contracts/auction/AuctionState.sol\":{\"keccak256\":\"0x794fae5c74db6f743d9c09f7a31c72770e688c15ec3c44574a1853567b17a961\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://aca2ce3d12f17d5111a4bee22f7def77f5d039894a7aa99f2afa04e7f5d3fec5\",\"dweb:/ipfs/QmNe5tDzWmvinNLW6S1RrwEH3VaE4SYDUpNJxKAMJubp46\"]},\"project:/contracts/exchange/ExchangeDomain.sol\":{\"keccak256\":\"0x2b0b5fab0e58b0492effe662e1b82ed68b8710d1f013062e6cbe7f7803a314ca\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://86a107f4d9a5014e6c901f23d57aa97f610e3b4208e1d2d641ad3a18c8205026\",\"dweb:/ipfs/QmTADkRZ7Myz1jniGUpPP3HYQSYTAUZRHJA2SfRWEQNgrv\"]},\"project:/contracts/exchange/OperatorRole.sol\":{\"keccak256\":\"0xf2071bc1b7a39c06e14bc1e0466ee367a6b803c6645d7ad4af22ba00be4d22c2\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://07b94b8d5971a076c9998e43b2593fadd622a8d8e19efcf081e2137dbfd6c40e\",\"dweb:/ipfs/QmddMaeDB8bhC4XE5yDGKWp2PoQ5SiernRWDsykTQh5Hwk\"]},\"project:/contracts/exchange/OwnableOperatorRole.sol\":{\"keccak256\":\"0xad18d23da1b860cd579674572227ed3e9111cf2caf3d28469b0aaf042b01e503\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://ae8b0c5ae2be771f433c85b889ce9c27f6474d3e63daaf52c45780df1a837a1f\",\"dweb:/ipfs/QmR3UgNNgc7UdP6GBjwoSXbHuxcMDeRmPhUqSPyJzp92Gb\"]},\"project:/contracts/lib/utils/Context.sol\":{\"keccak256\":\"0x99086002a3f7f3b0f04acb5e754fae75d00d821471f60c3b31dd56e2a4000e6c\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://0fdc11fb55e33e66bca16650302f82be10f6093ce9b335574b46c77f7e06b2fb\",\"dweb:/ipfs/QmWbWsYEAUDw148fmMGBbqX4tgyBwXDBACianPeUDb2hSg\"]},\"project:/contracts/lib/utils/Ownable.sol\":{\"keccak256\":\"0x87a8bcf67f38a237e582db225c79837b564b7f181963f1e2564b21f98534ed39\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://f22150e93e2ce7629093f6724a3a38773ebff88ffd9d6c14e5fd8bb56679028d\",\"dweb:/ipfs/QmdqYfrbvjW2iSDL8acTELhJLyAsu7giYTEa4zfVP65FwX\"]},\"project:/contracts/lib/utils/Roles.sol\":{\"keccak256\":\"0xe5ef22c0e2dc13bdb82300fe7ceff9ed849b3779d10da91dbbb43e5b556aacb4\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://f9816ad0d7238df37853148b426481c9f6cbf39f791eb8a7cdc742ba092e69fa\",\"dweb:/ipfs/QmbPdKGXws4BPf85XdFb7djvRgA7or1cjbWnGeYpFGRNQv\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b50600061001b61006a565b600080546001600160a01b0319166001600160a01b0383169081178255604051929350917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0908290a35061006e565b3390565b610a048061007d6000396000f3fe608060405234801561001057600080fd5b50600436106100be5760003560e01c8063c9f0fe6511610076578063f2fde38b1161005b578063f2fde38b14610164578063f6419d9614610177578063fb0000c01461018a576100be565b8063c9f0fe6514610131578063dc10fb0a14610144576100be565b80638da5cb5b116100a75780638da5cb5b146100f65780639870d7fe1461010b578063ac8a584a1461011e576100be565b80636d70f7ae146100c3578063715018a6146100ec575b600080fd5b6100d66100d1366004610680565b61019d565b6040516100e39190610789565b60405180910390f35b6100f46101b2565b005b6100fe610251565b6040516100e39190610775565b6100f4610119366004610680565b610260565b6100f461012c366004610680565b6102ab565b6100f461013f3660046106b9565b6102f3565b6101576101523660046106d1565b610354565b6040516100e39190610794565b6100f4610172366004610680565b6103a3565b6100d66101853660046106a1565b610470565b6100d66101983660046106b9565b610485565b60006101aa6001836104b6565b90505b919050565b6101ba6104fe565b6001600160a01b03166101cb610251565b6001600160a01b0316146101fa5760405162461bcd60e51b81526004016101f1906108eb565b60405180910390fd5b600080546040516001600160a01b03909116907f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0908390a36000805473ffffffffffffffffffffffffffffffffffffffff19169055565b6000546001600160a01b031690565b6102686104fe565b6001600160a01b0316610279610251565b6001600160a01b03161461029f5760405162461bcd60e51b81526004016101f1906108eb565b6102a881610502565b50565b6102b36104fe565b6001600160a01b03166102c4610251565b6001600160a01b0316146102ea5760405162461bcd60e51b81526004016101f1906108eb565b6102a881610544565b6102fe6100d16104fe565b61031a5760405162461bcd60e51b81526004016101f190610831565b600160026000610332610152368690038601866106d1565b81526020810191909152604001600020805460ff191691151591909117905550565b80516040808301518051602091820151606086015180519084015184880151955160009761038697909690910161072d565b604051602081830303815290604052805190602001209050919050565b6103ab6104fe565b6001600160a01b03166103bc610251565b6001600160a01b0316146103e25760405162461bcd60e51b81526004016101f1906108eb565b6001600160a01b0381166104085760405162461bcd60e51b81526004016101f1906107d4565b600080546040516001600160a01b03808516939216917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e091a36000805473ffffffffffffffffffffffffffffffffffffffff19166001600160a01b0392909216919091179055565b60026020526000908152604090205460ff1681565b600060028161049c610152368690038601866106d1565b815260208101919091526040016000205460ff1692915050565b60006001600160a01b0382166104de5760405162461bcd60e51b81526004016101f190610920565b506001600160a01b03166000908152602091909152604090205460ff1690565b3390565b61050d600182610586565b6040516001600160a01b038216907fac6fa858e9350a46cec16539926e0fde25b7629f84b5a72bffaae4df888ae86d90600090a250565b61054f6001826105d2565b6040516001600160a01b038216907f80c0b871b97b595b16a7741c1b06fed0c6f6f558639f18ccbce50724325dc40d90600090a250565b61059082826104b6565b156105ad5760405162461bcd60e51b81526004016101f19061079d565b6001600160a01b0316600090815260209190915260409020805460ff19166001179055565b6105dc82826104b6565b6105f85760405162461bcd60e51b81526004016101f19061088e565b6001600160a01b0316600090815260209190915260409020805460ff19169055565b80356001600160a01b03811681146101ad57600080fd5b600060608284031215610642578081fd5b61064c606061097d565b90506106578261061a565b81526020820135602082015260408201356005811061067557600080fd5b604082015292915050565b600060208284031215610691578081fd5b61069a8261061a565b9392505050565b6000602082840312156106b2578081fd5b5035919050565b600061010082840312156106cb578081fd5b50919050565b600061010082840312156106e3578081fd5b6106ed608061097d565b6106f68361061a565b81526020830135602082015261070f8460408501610631565b60408201526107218460a08501610631565b60608201529392505050565b6bffffffffffffffffffffffff19606097881b8116825295871b8616601482015260288101949094529190941b9092166048820152605c810192909252607c820152609c0190565b6001600160a01b0391909116815260200190565b901515815260200190565b90815260200190565b6020808252601f908201527f526f6c65733a206163636f756e7420616c72656164792068617320726f6c6500604082015260600190565b60208082526026908201527f4f776e61626c653a206e6577206f776e657220697320746865207a65726f206160408201527f6464726573730000000000000000000000000000000000000000000000000000606082015260800190565b60208082526034908201527f4f70657261746f72526f6c653a2063616c6c657220646f6573206e6f7420686160408201527f766520746865204f70657261746f7220726f6c65000000000000000000000000606082015260800190565b60208082526021908201527f526f6c65733a206163636f756e7420646f6573206e6f74206861766520726f6c60408201527f6500000000000000000000000000000000000000000000000000000000000000606082015260800190565b6020808252818101527f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572604082015260600190565b60208082526022908201527f526f6c65733a206163636f756e7420697320746865207a65726f20616464726560408201527f7373000000000000000000000000000000000000000000000000000000000000606082015260800190565b60405181810167ffffffffffffffff811182821017156109c6577f4e487b7100000000000000000000000000000000000000000000000000000000600052604160045260246000fd5b60405291905056fea264697066735822122002a3082b3a63099b4abd2867ef42ac392915a10a7ebfc4f1c554005067946cd564736f6c63430008000033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100be5760003560e01c8063c9f0fe6511610076578063f2fde38b1161005b578063f2fde38b14610164578063f6419d9614610177578063fb0000c01461018a576100be565b8063c9f0fe6514610131578063dc10fb0a14610144576100be565b80638da5cb5b116100a75780638da5cb5b146100f65780639870d7fe1461010b578063ac8a584a1461011e576100be565b80636d70f7ae146100c3578063715018a6146100ec575b600080fd5b6100d66100d1366004610680565b61019d565b6040516100e39190610789565b60405180910390f35b6100f46101b2565b005b6100fe610251565b6040516100e39190610775565b6100f4610119366004610680565b610260565b6100f461012c366004610680565b6102ab565b6100f461013f3660046106b9565b6102f3565b6101576101523660046106d1565b610354565b6040516100e39190610794565b6100f4610172366004610680565b6103a3565b6100d66101853660046106a1565b610470565b6100d66101983660046106b9565b610485565b60006101aa6001836104b6565b90505b919050565b6101ba6104fe565b6001600160a01b03166101cb610251565b6001600160a01b0316146101fa5760405162461bcd60e51b81526004016101f1906108eb565b60405180910390fd5b600080546040516001600160a01b03909116907f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0908390a36000805473ffffffffffffffffffffffffffffffffffffffff19169055565b6000546001600160a01b031690565b6102686104fe565b6001600160a01b0316610279610251565b6001600160a01b03161461029f5760405162461bcd60e51b81526004016101f1906108eb565b6102a881610502565b50565b6102b36104fe565b6001600160a01b03166102c4610251565b6001600160a01b0316146102ea5760405162461bcd60e51b81526004016101f1906108eb565b6102a881610544565b6102fe6100d16104fe565b61031a5760405162461bcd60e51b81526004016101f190610831565b600160026000610332610152368690038601866106d1565b81526020810191909152604001600020805460ff191691151591909117905550565b80516040808301518051602091820151606086015180519084015184880151955160009761038697909690910161072d565b604051602081830303815290604052805190602001209050919050565b6103ab6104fe565b6001600160a01b03166103bc610251565b6001600160a01b0316146103e25760405162461bcd60e51b81526004016101f1906108eb565b6001600160a01b0381166104085760405162461bcd60e51b81526004016101f1906107d4565b600080546040516001600160a01b03808516939216917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e091a36000805473ffffffffffffffffffffffffffffffffffffffff19166001600160a01b0392909216919091179055565b60026020526000908152604090205460ff1681565b600060028161049c610152368690038601866106d1565b815260208101919091526040016000205460ff1692915050565b60006001600160a01b0382166104de5760405162461bcd60e51b81526004016101f190610920565b506001600160a01b03166000908152602091909152604090205460ff1690565b3390565b61050d600182610586565b6040516001600160a01b038216907fac6fa858e9350a46cec16539926e0fde25b7629f84b5a72bffaae4df888ae86d90600090a250565b61054f6001826105d2565b6040516001600160a01b038216907f80c0b871b97b595b16a7741c1b06fed0c6f6f558639f18ccbce50724325dc40d90600090a250565b61059082826104b6565b156105ad5760405162461bcd60e51b81526004016101f19061079d565b6001600160a01b0316600090815260209190915260409020805460ff19166001179055565b6105dc82826104b6565b6105f85760405162461bcd60e51b81526004016101f19061088e565b6001600160a01b0316600090815260209190915260409020805460ff19169055565b80356001600160a01b03811681146101ad57600080fd5b600060608284031215610642578081fd5b61064c606061097d565b90506106578261061a565b81526020820135602082015260408201356005811061067557600080fd5b604082015292915050565b600060208284031215610691578081fd5b61069a8261061a565b9392505050565b6000602082840312156106b2578081fd5b5035919050565b600061010082840312156106cb578081fd5b50919050565b600061010082840312156106e3578081fd5b6106ed608061097d565b6106f68361061a565b81526020830135602082015261070f8460408501610631565b60408201526107218460a08501610631565b60608201529392505050565b6bffffffffffffffffffffffff19606097881b8116825295871b8616601482015260288101949094529190941b9092166048820152605c810192909252607c820152609c0190565b6001600160a01b0391909116815260200190565b901515815260200190565b90815260200190565b6020808252601f908201527f526f6c65733a206163636f756e7420616c72656164792068617320726f6c6500604082015260600190565b60208082526026908201527f4f776e61626c653a206e6577206f776e657220697320746865207a65726f206160408201527f6464726573730000000000000000000000000000000000000000000000000000606082015260800190565b60208082526034908201527f4f70657261746f72526f6c653a2063616c6c657220646f6573206e6f7420686160408201527f766520746865204f70657261746f7220726f6c65000000000000000000000000606082015260800190565b60208082526021908201527f526f6c65733a206163636f756e7420646f6573206e6f74206861766520726f6c60408201527f6500000000000000000000000000000000000000000000000000000000000000606082015260800190565b6020808252818101527f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572604082015260600190565b60208082526022908201527f526f6c65733a206163636f756e7420697320746865207a65726f20616464726560408201527f7373000000000000000000000000000000000000000000000000000000000000606082015260800190565b60405181810167ffffffffffffffff811182821017156109c6577f4e487b7100000000000000000000000000000000000000000000000000000000600052604160045260246000fd5b60405291905056fea264697066735822122002a3082b3a63099b4abd2867ef42ac392915a10a7ebfc4f1c554005067946cd564736f6c63430008000033"
+}

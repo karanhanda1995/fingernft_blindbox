@@ -1,0 +1,61 @@
+{
+  "name": "microcli",
+  "version": "1.3.3",
+  "description": "CLI scripts micro engine",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "lint": "tslint -c tslint.json 'src/*.ts'",
+    "test": "yarn run lint && yarn run test:unit && yarn build && yarn run test:e2e",
+    "test:unit": "jest ./src/index.spec.ts",
+    "test:e2e": "jest ./src/index.e2e.spec.ts"
+  },
+  "lint-staged": {
+    "src/*.{ts,tsx}": [
+      "tslint --fix",
+      "git add",
+      "jest --bail --findRelatedTests"
+    ]
+  },
+  "engines": {
+    "node": ">=6.16.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pawelgalazka/microcli.git"
+  },
+  "keywords": [
+    "cli",
+    "option",
+    "parser",
+    "command",
+    "commander"
+  ],
+  "author": "Pawel Galazka",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pawelgalazka/microcli/issues"
+  },
+  "homepage": "https://github.com/pawelgalazka/microcli#readme",
+  "dependencies": {
+    "lodash": "4.17.11",
+    "microargs": "1.1.2"
+  },
+  "devDependencies": {
+    "@types/dedent": "0.7.0",
+    "@types/jest": "23.3.12",
+    "@types/lodash": "4.14.120",
+    "@types/node": "10.12.18",
+    "dedent": "0.7.0",
+    "husky": "1.3.1",
+    "jest": "23.6.0",
+    "lint-staged": "8.1.0",
+    "prettier": "1.15.3",
+    "ts-jest": "23.10.5",
+    "tslint": "5.12.1",
+    "tslint-config-prettier": "1.17.0",
+    "tslint-plugin-prettier": "2.0.1",
+    "typescript": "3.2.2"
+  }
+}

@@ -1,0 +1,105 @@
+// base color
+$blue:#324157;
+$light-blue:#3A71A8;
+$red:#C03639;
+$pink: #E65D6E;
+$green: #30B08F;
+$tiffany: #4AB7BD;
+$yellow:#FEC171;
+$panGreen: #30B08F;
+
+// sidebar
+/*
+$menuBg: #074CCC;
+$menuActiveText: #074CCC;
+$menuHoverText: #074CCC;
+$subMenuActiveText: #074CCC; // https://github.com/ElemeFE/element/issues/12951
+$subMenuBg: #074CCC;
+
+$menuActiveBg: #fff;
+$menuText:#fff;
+$menuHover: #fff;
+$subMenuHover: #fff;
+*/
+$menuBg: #FFFFFF;
+$subMenuBg: #FFFFFF;
+$menuHover: #E7F0FF;
+$menuActiveBg: #E7F0FF;
+$subMenuHover: #E7F0FF;
+
+$menuActiveText: #007AFF;
+$menuHoverText: #007AFF;
+$subMenuActiveText: #007AFF; // https://github.com/ElemeFE/element/issues/12951
+
+$menuText:#707070;
+
+
+$sideBarWidth: 255px;
+
+// the :export directive is the magic sauce for webpack
+// https://www.bluematador.com/blog/how-to-share-variables-between-js-and-sass
+:export {
+  menuText: $menuText;
+  menuActiveText: $menuActiveText;
+  subMenuActiveText: $subMenuActiveText;
+  menuBg: $menuBg;
+  menuHover: $menuHover;
+  subMenuBg: $subMenuBg;
+  subMenuHover: $subMenuHover;
+  sideBarWidth: $sideBarWidth;
+}
+
+
+@mixin flex-row($justify: center) {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: $justify;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin ddd {
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+@mixin ddds($clamp: 2) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $clamp;
+  -webkit-box-orient: vertical;
+  white-space: initial;
+}
+
+
+$primaryColor: #59A6F3;
+$gradientColor: linear-gradient(90deg, #1EC0D7 0%, #3794F1 100%);
+$gradientColor1: linear-gradient(90deg, #59A6F3 0%, #39589d 100%);
+$secondPrimaryColor: #dbe9f7;
+
+$redColor: #ee0a24;
+$blueColor: #7381FF;
+$grayColor: #999;
+$greenColor: #00c657;
+
+$border: 1px solid #dcdfe6;
+$borderRadius: 8px;
+
+$tabTitleWidth: 90px;
+$headerHeight: 112px;
+
+
+$media_l1: 1320px;
+$media_l2: 1080px;
+$media_l3: 910px;
+$media_l4: 845px;
+$media_l5: 768px;
+$media_l6: 576px;

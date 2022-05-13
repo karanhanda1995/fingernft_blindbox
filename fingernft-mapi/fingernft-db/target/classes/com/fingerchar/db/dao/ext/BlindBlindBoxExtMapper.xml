@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fingerchar.db.dao.ext.BlindBlindBoxExtMapper">
+
+    <select id="findActive" resultType="com.fingerchar.db.domain.BlindBlindBox">
+        SELECT t1.*
+        FROM blind_blind_box t1
+             LEFT JOIN blind_blind_box_order t2
+             ON t1.id = t2.blind_box_id
+        WHERE t1.`deleted` = false
+        AND t1.`is_sync` = true
+        AND t1.`end_time`  <![CDATA[ > ]]>  #{currentTime}
+        AND t2.`openeds`  <![CDATA[ < ]]>  t1.`amount`
+        <if test='null != blindTypes'> 
+			and t1.`blind_type_id` in 
+        	<foreach item='item' index='index' collection='blindTypes' open='(' separator=',' close=')'>#{item}</foreach>
+        </if>
+        <choose>
+            <when test="null != sort and '' != sort">
+                order by t1.`${sort}` ${order}
+            </when>
+            <otherwise>
+                order by t1.`create_time` desc
+            </otherwise>
+        </choose>
+    </select>
+</mapper>
